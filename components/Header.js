@@ -10,8 +10,8 @@ import { HomeIcon } from "@heroicons/react/solid";
 const Header = () => {
   return (
     <div className='bg-white shadow-sm border-b sticky top-0 z-50'>
-      <div className='flex justify-between max-w-6xl mx-5 lg:mx-auto'>
-        {/* Insta logo */}
+      <div className='flex justify-between max-w-6xl mx-5 lg:mx-auto py-5 md:py-0'>
+        {/* Instagram logo */}
         <div className='hidden lg:inline-grid relative w-24  cursor-pointer'>
           <Image
             src='https://links.papareact.com/ocw'
