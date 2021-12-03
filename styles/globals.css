@@ -5,3 +5,9 @@
 * {
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
 }
+
+@layer components {
+  .navBtn {
+    @apply h-6 w-6 md:inline-flex cursor-pointer transition-all duration-150 transform hover:scale-125;
+  }
+}
