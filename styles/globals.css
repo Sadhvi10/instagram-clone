@@ -10,4 +10,7 @@
   .navBtn {
     @apply h-6 w-6 md:inline-flex cursor-pointer transition-all duration-150 transform hover:scale-125;
   }
+  .btn {
+    @apply h-7 hover:scale-125 text-gray-700 cursor-pointer transition-all duration-150 ease-out;
+  }
 }
