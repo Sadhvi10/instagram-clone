@@ -6,13 +6,21 @@ import {
   HeartIcon,
 } from "@heroicons/react/outline";
 import { HomeIcon } from "@heroicons/react/solid";
+import { signIn, signOut, useSession } from "next-auth/react";
+import { useRouter } from "next/dist/client/router";
 
 const Header = () => {
+  const { data: session } = useSession();
+  const router = useRouter();
+
   return (
     <div className='bg-white shadow-sm border-b sticky top-0 z-50'>
       <div className='flex justify-between max-w-6xl mx-5 lg:mx-auto py-5 md:py-0'>
         {/* Instagram logo */}
-        <div className='hidden lg:inline-grid relative w-24  cursor-pointer'>
+        <div
+          className='hidden lg:inline-grid relative w-24  cursor-pointer'
+          onClick={() => router.push("/")}
+        >
           <Image
             src='https://links.papareact.com/ocw'
             objectFit='contain'
@@ -20,7 +28,10 @@ const Header = () => {
           />
         </div>
 
-        <div className='lg:hidden relative w-8  flex-shrink-0 cursor-pointer'>
+        <div
+          className='lg:hidden relative w-8  flex-shrink-0 cursor-pointer'
+          onClick={() => router.push("/")}
+        >
           <Image
             src='https://links.papareact.com/jjm'
             objectFit='contain'
@@ -44,26 +55,38 @@ const Header = () => {
 
         {/* Icons */}
         <div className='flex items-center justify-end space-x-4'>
-          <HomeIcon className='navBtn' />
-          <div className='relative navBtn'>
-            <img
-              className=' navBtn'
-              src='/icons/messenger-line.svg'
-              alt='messenger'
-            />
-            <span className='absolute -top-1 -right-1 text-xs w-4 h-4 bg-red-500 rounded-full flex items-center justify-center text-white'>
-              3
-            </span>
-          </div>
-          <PlusCircleIcon className='navBtn' />
-          <UserGroupIcon className='navBtn' />
-          <HeartIcon className='navBtn' />
+          <HomeIcon className='navBtn' onClick={() => router.push("/")} />
+          {session ? (
+            <>
+              <div className='relative navBtn'>
+                <img
+                  className=' navBtn'
+                  src='/icons/messenger-line.svg'
+                  alt='messenger'
+                />
+                <span className='absolute -top-1 -right-1 text-xs w-4 h-4 bg-red-500 rounded-full flex items-center justify-center text-white'>
+                  3
+                </span>
+              </div>
+              <PlusCircleIcon className='navBtn' />
+              <UserGroupIcon className='navBtn' />
+              <HeartIcon className='navBtn' />
 
-          <img
-            src='https://i.ibb.co/Ch7KMJS/studdy-spotify.png'
-            alt='me'
-            className='h-10 rounded-full cursor-pointer'
-          />
+              <img
+                onClick={signOut}
+                src={session.user.image}
+                alt='me'
+                className='h-10 rounded-full cursor-pointer'
+              />
+            </>
+          ) : (
+            <button
+              className='font-semibold text-blue-400 tracking-tight'
+              onClick={signIn}
+            >
+              Sign In
+            </button>
+          )}
         </div>
       </div>
     </div>

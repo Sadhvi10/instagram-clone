@@ -7,10 +7,13 @@ import {
   PaperAirplaneIcon,
 } from "@heroicons/react/outline";
 import { HeartIcon as HeartIconFilled } from "@heroicons/react/solid";
+import { useSession } from "next-auth/react";
 
 const Post = ({ id, username, userImg, caption, img }) => {
+  const { data: session } = useSession();
+
   return (
-    <div className='bg-white my-7 rounded-sm'>
+    <div className={`bg-white my-7 rounded-sm ${!session && "filter blur-sm"}`}>
       {/* Header */}
       <div className='flex items-center p-5'>
         <img
