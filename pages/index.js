@@ -16,3 +16,5 @@ export default function Home() {
     </div>
   );
 }
+
+// Recoil - Global store to change the state of modal
