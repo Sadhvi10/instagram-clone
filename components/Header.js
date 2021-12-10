@@ -71,7 +71,10 @@ const Header = () => {
                   3
                 </span>
               </div>
-              <PlusCircleIcon className='navBtn' />
+              <PlusCircleIcon
+                onClick={() => setOpen(true)}
+                className='navBtn'
+              />
               <UserGroupIcon className='navBtn' />
               <HeartIcon className='navBtn' />
 
