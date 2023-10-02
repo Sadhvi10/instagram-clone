@@ -1,6 +1,6 @@
 # Instagram Clone
 
-This application is a replica of Instagram which is owned by Meta Platforms, Inc. This clone is built using Javascript frameworks like React, and Next and a CSS utility framework called TailwindCSS. A Javascript library Faker.js is used to produce simulated data for the story functionality of the Instagram-like platform while the Google Cloud console, Firebase is used for authentication and data storage purposes.
+This application is a replica of Instagram which is owned by [Meta Platforms, Inc](https://en.wikipedia.org/wiki/Meta_Platforms). This clone is built using Javascript frameworks like React, and Next and a CSS utility framework called TailwindCSS. A Javascript library Faker.js is used to produce simulated data for the story functionality of the Instagram-like platform while the Google Cloud console, Firebase is used for authentication and data storage purposes.
 
 ## Live Website
 
